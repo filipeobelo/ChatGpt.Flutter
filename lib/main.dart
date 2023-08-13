@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
 import 'routes/router_configuration.dart';
 
 void main() {
@@ -23,20 +21,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text('Tela de boas vindas'),
-          ElevatedButton(onPressed: () => context.goNamed('chatPage'), child: const Text('Abrir chat')),
-        ],
-      )),
-    );
-  }
-}
