@@ -1,6 +1,6 @@
-import 'package:chat_gpt/chat/chat_page.dart';
+import 'package:chat_gpt/features/chat/presentation/chat_page.dart';
 import 'package:go_router/go_router.dart';
-import '../welcome/welcome_page.dart';
+import '../features/welcome/presentation/welcome_page.dart';
 
 final router = GoRouter(
   routes: [
