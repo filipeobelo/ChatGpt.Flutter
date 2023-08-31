@@ -6,7 +6,7 @@ sealed class ChatState {}
 final class ChatInitial extends ChatState {}
 
 final class ChatResult extends ChatState {
-  ChatResult(this.message);
+  ChatResult(this.chatResult);
 
-  final String message;
+  final ChatData chatResult;
 }
