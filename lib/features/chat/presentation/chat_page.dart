@@ -20,7 +20,7 @@ class ChatPage extends StatelessWidget {
                 switch (state.runtimeType) {
                   case ChatResult:
                     state as ChatResult;
-                    return Text(state.chatResult.fact);
+                    return Text(state.chatResult.choices[0].message.content);
                   default:
                     return const Text('Initial State');
                 }
