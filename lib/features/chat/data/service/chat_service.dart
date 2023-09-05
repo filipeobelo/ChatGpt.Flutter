@@ -1,18 +1,20 @@
-import 'package:chat_gpt/features/chat/data/chat_data.dart';
+import 'dart:convert';
+
+import 'package:chat_gpt/features/chat/data/completions_input.dart';
+import 'package:chat_gpt/features/chat/data/completions_output.dart';
 import 'package:dio/dio.dart';
 
+import '../../../../commons/network/network.dart';
+
 abstract interface class ChatService {
-  Future<ChatData> sendMessage();
+  Future<CompletionsOutput> sendCompletion(CompletionsInput input);
 }
 
 class ChatServiceImpl implements ChatService {
-  final dio = Dio();
-
   @override
-  Future<ChatData> sendMessage() async {
-    Response response;
-    // Todo: mock api for test purpose 
-    response = await dio.get('https://catfact.ninja/fact');
-    return ChatData.fromJson(response.data);
+  Future<CompletionsOutput> sendCompletion(CompletionsInput input) async {
+    Response response =
+        await dio.post('/v1/chat/completions', data: jsonEncode(input));
+    return CompletionsOutput.fromJson(response.data);
   }
 }

@@ -8,5 +8,5 @@ final class ChatInitial extends ChatState {}
 final class ChatResult extends ChatState {
   ChatResult(this.chatResult);
 
-  final ChatData chatResult;
+  final CompletionsOutput chatResult;
 }
