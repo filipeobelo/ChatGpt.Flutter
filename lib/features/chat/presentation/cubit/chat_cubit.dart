@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:chat_gpt/features/chat/data/completions_input.dart';
-import 'package:chat_gpt/features/chat/data/message.dart';
+import 'package:chat_gpt/features/chat/data/model/completions_input.dart';
+import 'package:chat_gpt/features/chat/data/model/message.dart';
 import 'package:flutter/material.dart';
 
-import '../../data/completions_output.dart';
+import '../../data/model/completions_output.dart';
 import '../../data/service/chat_service.dart';
 
 part 'chat_state.dart';

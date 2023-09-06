@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:chat_gpt/features/chat/data/completions_input.dart';
-import 'package:chat_gpt/features/chat/data/completions_output.dart';
+import 'package:chat_gpt/features/chat/data/model/completions_input.dart';
+import 'package:chat_gpt/features/chat/data/model/completions_output.dart';
 import 'package:dio/dio.dart';
 
 import '../../../../commons/network/network.dart';

@@ -1,4 +1,4 @@
-import 'package:chat_gpt/features/chat/data/message.dart';
+import 'package:chat_gpt/features/chat/data/model/message.dart';
 
 class Choice {
   Choice(this.message, this.finishReason, this.index);
