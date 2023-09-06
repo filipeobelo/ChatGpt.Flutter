@@ -1,4 +1,4 @@
-import 'package:chat_gpt/features/chat/data/choices.dart';
+import 'package:chat_gpt/features/chat/data/model/choices.dart';
 
 class CompletionsOutput {
   CompletionsOutput(this.id, this.created, this.choices);
