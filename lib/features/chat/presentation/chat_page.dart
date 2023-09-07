@@ -23,44 +23,43 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ChatCubit(service: ChatServiceImpl()),
-      child: Builder(
-        builder: (context) {
-          return Scaffold(
-            body: Column(
-              children: [
-                TextField(
-                  controller: textController,
-                ),
-                Expanded(
-                  child: BlocBuilder<ChatCubit, ChatState>(
-                    builder: (context, state) {
-                      switch (state) {
-                        case ChatInitial():
-                          return const Text('Say something to me!');
-                        case ChatResult():
-                          return ListView.builder(
-                              itemCount: state.messages.length,
-                              itemBuilder: (context, index) {
-                                final item = state.messages[index];
+      child: Builder(builder: (context) {
+        return Scaffold(
+          body: Column(
+            children: [
+              TextField(
+                controller: textController,
+              ),
+              Expanded(
+                child: BlocBuilder<ChatCubit, ChatState>(
+                  builder: (context, state) {
+                    switch (state) {
+                      case ChatInitial():
+                        return const Text('Say something to me!');
+                      case ChatResult():
+                        return ListView.builder(
+                            itemCount: state.messages.length,
+                            itemBuilder: (context, index) {
+                              final item = state.messages[index];
 
-                                return Text('${item.role}: ${item.content}');
-                              });
-                        case ChatError():
-                          return Text(state.error);
-                      }
-                    },
-                  ),
-                )
-              ],
-            ),
-            floatingActionButton: FloatingActionButton(
-                child: const Text('oi'),
-                onPressed: () {
-                  context.read<ChatCubit>().sendMessage(textController.text);
-                }),
-          );
-        }
-      ),
+                              return Text('${item.role}: ${item.content}');
+                            });
+                      case ChatError():
+                        return Text(state.error);
+                    }
+                  },
+                ),
+              )
+            ],
+          ),
+          floatingActionButton: FloatingActionButton(
+              child: const Text('oi'),
+              onPressed: () {
+                context.read<ChatCubit>().sendMessage(textController.text);
+                textController.value = TextEditingValue.empty;
+              }),
+        );
+      }),
     );
   }
 }

@@ -19,6 +19,7 @@ class ChatCubit extends Cubit<ChatState> {
       _messages.add(Message(roleInput, userMessage));
       final userMessages =
           _messages.where((element) => element.role == roleInput).toList();
+      emit(ChatResult(_messages));
       final chatData = await service
           .sendCompletion(CompletionsInput('gpt-3.5-turbo', userMessages, 0.7));
       _messages.add(Message(roleOutput, chatData.choices[0].message.content));
