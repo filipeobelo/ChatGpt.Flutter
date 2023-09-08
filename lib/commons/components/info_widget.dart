@@ -9,7 +9,7 @@ class InfoWidget extends StatelessWidget {
 
   final String title;
   final String description;
-  final Icon icon;
+  final ImageIcon icon;
   
   @override
   Widget build(BuildContext context) {

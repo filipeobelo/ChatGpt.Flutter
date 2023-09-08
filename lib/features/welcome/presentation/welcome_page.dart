@@ -25,15 +25,18 @@ class MyHomePage extends StatelessWidget {
           const InfoWidget(
               title: infoTitle1,
               description: infoDescription1,
-              icon: Icon(Icons.language, color: Colors.green)),
+              icon: ImageIcon(AssetImage('icons/globe.png'),
+                  color: Color(0xff1DC27D))),
           const InfoWidget(
               title: infoTitle2,
               description: infoDescription2,
-              icon: Icon(Icons.lock, color: Colors.purple)),
+              icon: ImageIcon(AssetImage('icons/lock.png'),
+                  color: Color(0xff8783FF))),
           const InfoWidget(
               title: infoTitle3,
               description: infoDescription3,
-              icon: Icon(Icons.tune, color: Colors.black)),
+              icon: ImageIcon(AssetImage('icons/sliders.png'),
+                  color: Color(0xff000000))),
           ElevatedButton(
               onPressed: () => context.pushNamed(routerChat),
               child: const Text(buttonText)),
