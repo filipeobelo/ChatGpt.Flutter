@@ -10,35 +10,60 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      body: Column(
-        children: [
-          Text(
-            pageTitle,
-            style: textTheme.headlineLarge,
-          ),
-          Text(
-            pageDescription,
-            style: textTheme.bodyMedium,
-          ),
-          const InfoWidget(
-              title: infoTitle1,
-              description: infoDescription1,
-              icon: ImageIcon(AssetImage('icons/globe.png'),
-                  color: Color(0xff1DC27D))),
-          const InfoWidget(
-              title: infoTitle2,
-              description: infoDescription2,
-              icon: ImageIcon(AssetImage('icons/lock.png'),
-                  color: Color(0xff8783FF))),
-          const InfoWidget(
-              title: infoTitle3,
-              description: infoDescription3,
-              icon: ImageIcon(AssetImage('icons/sliders.png'),
-                  color: Color(0xff000000))),
-          ElevatedButton(
-              onPressed: () => context.pushNamed(routerChat),
-              child: const Text(buttonText)),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Column(
+              children: [
+                Text(
+                  pageTitle,
+                  style: textTheme.headlineLarge,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 27),
+                  child: Text(
+                    pageDescription,
+                    style: textTheme.bodyMedium,
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 30),
+                  child: const InfoWidget(
+                      title: infoTitle1,
+                      description: infoDescription1,
+                      icon: ImageIcon(AssetImage('icons/globe.png'),
+                          color: Color(0xff1DC27D))),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 30),
+                  child: const InfoWidget(
+                      title: infoTitle2,
+                      description: infoDescription2,
+                      icon: ImageIcon(AssetImage('icons/lock.png'),
+                          color: Color(0xff8783FF))),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 30),
+                  child: const InfoWidget(
+                      title: infoTitle3,
+                      description: infoDescription3,
+                      icon: ImageIcon(AssetImage('icons/sliders.png'),
+                          color: Color(0xff000000))),
+                ),
+              ],
+            ),
+            FilledButton.tonal(
+                style: FilledButton.styleFrom(
+                    minimumSize: const Size.fromHeight(40)),
+                onPressed: () => context.pushNamed(routerChat),
+                child: Text(
+                  buttonText,
+                  style: textTheme.bodyMedium
+                      ?.copyWith(fontSize: 14, color: const Color(0xff343345)),
+                )),
+          ],
+        ),
       ),
     );
   }
