@@ -10,9 +10,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Column(
         children: [
           Text(
             pageTitle,
@@ -20,7 +18,7 @@ class MyHomePage extends StatelessWidget {
           ),
           Text(
             pageDescription,
-            style: textTheme.titleMedium,
+            style: textTheme.bodyMedium,
           ),
           const InfoWidget(
               title: infoTitle1,
@@ -41,7 +39,7 @@ class MyHomePage extends StatelessWidget {
               onPressed: () => context.pushNamed(routerChat),
               child: const Text(buttonText)),
         ],
-      )),
+      ),
     );
   }
 }
