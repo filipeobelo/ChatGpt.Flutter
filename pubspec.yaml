@@ -65,6 +65,7 @@ flutter:
 
   assets:
     - icons/
+    - images/
 
   fonts:
     - family: Inter
