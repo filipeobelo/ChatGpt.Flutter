@@ -10,24 +10,33 @@ class InfoWidget extends StatelessWidget {
   final String title;
   final String description;
   final ImageIcon icon;
-  
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    return Column(children: [
-      Row(
-        children: [
-          icon,
-          Text(
-            title,
-            style: textTheme.titleMedium,
-          )
-        ],
+    return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      icon,
+      Expanded(
+        child: Container(
+          margin: const EdgeInsets.only(left: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: textTheme.titleMedium,
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              Text(
+                description,
+                style: textTheme.bodyMedium,
+              ),
+            ],
+          ),
+        ),
       ),
-      Text(
-        description,
-        style: textTheme.bodyMedium,
-      )
     ]);
   }
 }
