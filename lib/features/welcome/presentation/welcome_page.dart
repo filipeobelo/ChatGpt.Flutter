@@ -34,29 +34,24 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      margin: const EdgeInsets.only(top: 30),
-                      child: const InfoWidget(
-                          title: infoTitle1,
-                          description: infoDescription1,
-                          icon: ImageIcon(AssetImage('icons/globe.png'),
-                              color: Color(0xff1DC27D))),
-                    ),
+                        margin: const EdgeInsets.only(top: 30),
+                        child: const InfoWidget(
+                            title: infoTitle1,
+                            description: infoDescription1,
+                            iconPath: 'icons/globe.png')),
                     Container(
-                      margin: const EdgeInsets.only(top: 30),
-                      child: const InfoWidget(
-                          title: infoTitle2,
-                          description: infoDescription2,
-                          icon: ImageIcon(AssetImage('icons/lock.png'),
-                              color: Color(0xff8783FF))),
-                    ),
+                        margin: const EdgeInsets.only(top: 30),
+                        child: const InfoWidget(
+                            title: infoTitle2,
+                            description: infoDescription2,
+                            iconPath: 'icons/lock.png')),
                     Container(
-                      margin: const EdgeInsets.only(top: 30),
-                      child: const InfoWidget(
+                        margin: const EdgeInsets.only(top: 30),
+                        child: const InfoWidget(
                           title: infoTitle3,
                           description: infoDescription3,
-                          icon: ImageIcon(AssetImage('icons/sliders.png'),
-                              color: Color(0xff000000))),
-                    ),
+                          iconPath: 'icons/sliders.png',
+                        )),
                     Expanded(child: Container()),
                     Container(
                       margin: const EdgeInsets.only(top: 30),
