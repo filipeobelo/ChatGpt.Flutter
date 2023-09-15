@@ -3,6 +3,7 @@ import 'package:chat_gpt/features/welcome/presentation/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../commons/strings.dart';
+import '../../../commons/themes/colors.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -62,7 +63,7 @@ class MyHomePage extends StatelessWidget {
                           child: Text(
                             buttonText,
                             style: textTheme.bodyMedium?.copyWith(
-                                fontSize: 14, color: const Color(0xff343345)),
+                                fontSize: 14, color: textButtonColor),
                           )),
                     ),
                   ],

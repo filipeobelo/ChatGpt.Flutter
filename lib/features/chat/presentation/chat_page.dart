@@ -1,7 +1,7 @@
-import 'package:chat_gpt/features/chat/data/service/chat_service.dart';
 import 'package:chat_gpt/features/chat/presentation/cubit/chat_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
@@ -22,7 +22,7 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ChatCubit(service: ChatServiceImpl()),
+      create: (context) => GetIt.I.get<ChatCubit>(),
       child: Builder(builder: (context) {
         return Scaffold(
           body: Column(

@@ -1,10 +1,13 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 
-final dio = Dio(
-  BaseOptions(
-    baseUrl: 'https://api.openai.com',
-    headers: {
-      'Authorization': 'Bearer myToken'
-    }
-  ),
-);
+@module
+abstract class NetworkModule {
+  
+  @singleton
+  Dio provideDio() =>
+      Dio(BaseOptions(baseUrl: 'https://api.openai.com', headers: {
+        'Authorization':
+            'Bearer myToken'
+      }));
+}
