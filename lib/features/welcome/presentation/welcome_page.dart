@@ -1,9 +1,11 @@
-import 'package:chat_gpt/commons/components/info_widget.dart';
 import 'package:chat_gpt/features/welcome/presentation/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../../commons/strings.dart';
-import '../../../commons/themes/colors.dart';
+
+import '../../../shared/images.dart';
+import '../../../shared/strings.dart';
+import '../../../shared/themes/colors.dart';
+import '../../../shared/widgets/info_widget.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -36,22 +38,22 @@ class MyHomePage extends StatelessWidget {
                     ),
                     Container(
                         margin: const EdgeInsets.only(top: 30),
-                        child: const InfoWidget(
+                        child: InfoWidget(
                             title: infoTitle1,
                             description: infoDescription1,
-                            iconPath: 'icons/globe.png')),
+                            icon: globeImage)),
                     Container(
                         margin: const EdgeInsets.only(top: 30),
-                        child: const InfoWidget(
+                        child: InfoWidget(
                             title: infoTitle2,
                             description: infoDescription2,
-                            iconPath: 'icons/lock.png')),
+                            icon: lockImage)),
                     Container(
                         margin: const EdgeInsets.only(top: 30),
-                        child: const InfoWidget(
+                        child: InfoWidget(
                           title: infoTitle3,
                           description: infoDescription3,
-                          iconPath: 'icons/sliders.png',
+                          icon: slidersImage,
                         )),
                     Expanded(child: Container()),
                     Container(

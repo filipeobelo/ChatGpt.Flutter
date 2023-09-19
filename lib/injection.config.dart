@@ -9,7 +9,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:chat_gpt/commons/network/network.dart' as _i8;
+import 'package:chat_gpt/shared/network/network.dart' as _i8;
 import 'package:chat_gpt/features/chat/data/repository/chat_repository.dart'
     as _i5;
 import 'package:chat_gpt/features/chat/data/service/chat_service.dart' as _i4;

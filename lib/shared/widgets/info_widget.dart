@@ -5,17 +5,17 @@ class InfoWidget extends StatelessWidget {
       {super.key,
       required this.title,
       required this.description,
-      required this.iconPath});
+      required this.icon});
 
   final String title;
   final String description;
-  final String iconPath;
+  final Image icon;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Image.asset(iconPath),
+      icon,
       Expanded(
         child: Container(
           margin: const EdgeInsets.only(left: 16),

@@ -1,4 +1,4 @@
-import 'package:chat_gpt/commons/themes/colors.dart';
+import 'package:chat_gpt/shared/themes/colors.dart';
 import 'package:chat_gpt/injection.dart';
 import 'package:flutter/material.dart';
 import 'routes/router_configuration.dart';
@@ -31,6 +31,11 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.w500,
               color: textMediumColor,
             ),
+            labelSmall: TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.w400,
+              color: textSmallColor
+            )
           ),
           iconButtonTheme: IconButtonThemeData(
               style: ButtonStyle(
