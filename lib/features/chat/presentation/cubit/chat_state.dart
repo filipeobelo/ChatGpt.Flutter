@@ -6,9 +6,9 @@ sealed class ChatState {}
 final class ChatInitial extends ChatState {}
 
 final class ChatResult extends ChatState {
-  ChatResult(this.messages);
+  ChatResult(this.widgets);
 
-  final List<Message> messages;
+  final List<ChatWidget> widgets;
 }
 
 final class ChatError extends ChatState {
@@ -16,3 +16,19 @@ final class ChatError extends ChatState {
 
   final String error;
 }
+
+sealed class ChatWidget {}
+
+class UserMessage extends ChatWidget {
+  UserMessage(this.message);
+
+  final Message message;
+}
+
+class SystemMessage extends ChatWidget {
+  SystemMessage(this.message);
+
+  final Message message;
+}
+
+class SpaceChatWidget extends ChatWidget {}

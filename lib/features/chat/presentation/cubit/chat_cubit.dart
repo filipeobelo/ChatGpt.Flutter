@@ -19,12 +19,27 @@ class ChatCubit extends Cubit<ChatState> {
       _messages.add(Message(roleInput, userMessage));
       final userMessages =
           _messages.where((element) => element.role == roleInput).toList();
-      emit(ChatResult(_messages));
+      emit(ChatResult(_mapToChatWidget(_messages)));
       final chatData = await _useCase.sendUserMessages(userMessages);
       _messages.add(Message(roleOutput, chatData.choices[0].message.content));
-      emit(ChatResult(_messages));
+      emit(ChatResult(_mapToChatWidget(_messages)));
     } catch (error) {
       emit(ChatError(error.toString()));
     }
   }
+}
+
+List<ChatWidget> _mapToChatWidget(List<Message> messages) {
+  return messages
+      .map((e) {
+        if (e.role == roleInput) {
+          return UserMessage(e);
+        } else {
+          return SystemMessage(e);
+        }
+      })
+      .toList()
+      .reversed
+      .toList()
+    ..insert(0, SpaceChatWidget());
 }

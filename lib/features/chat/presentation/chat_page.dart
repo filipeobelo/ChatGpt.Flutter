@@ -25,32 +25,41 @@ class _ChatPageState extends State<ChatPage> {
       create: (context) => GetIt.I.get<ChatCubit>(),
       child: Builder(builder: (context) {
         return Scaffold(
-          body: Column(
+          body: Stack(
+            fit: StackFit.expand,
             children: [
-              Expanded(
-                child: BlocBuilder<ChatCubit, ChatState>(
-                  builder: (context, state) {
-                    switch (state) {
-                      case ChatInitial():
-                        return const Image(
-                            image: AssetImage('images/gpt_logo.png'));
-                      case ChatResult():
-                        return ListView.builder(
-                            itemCount: state.messages.length,
-                            itemBuilder: (context, index) {
-                              final item = state.messages[index];
-
-                              return Text('${item.role}: ${item.content}');
-                            });
-                      case ChatError():
-                        return Text(state.error);
-                    }
-                  },
-                ),
+              BlocBuilder<ChatCubit, ChatState>(
+                builder: (context, state) {
+                  switch (state) {
+                    case ChatInitial():
+                      return const Image(
+                          image: AssetImage('images/gpt_logo.png'));
+                    case ChatResult():
+                      return ListView.builder(
+                          reverse: true,
+                          itemCount: state.widgets.length,
+                          itemBuilder: (context, index) {
+                            final item = state.widgets[index];
+                            switch (item) {
+                              case UserMessage():
+                                return Text('User: ${item.message.content}');
+                              case SystemMessage():
+                                return Text('System: ${item.message.content}');
+                              case SpaceChatWidget():
+                                return const SizedBox(
+                                  height: 70,
+                                );
+                            }
+                          });
+                    case ChatError():
+                      return Text(state.error);
+                  }
+                },
               ),
-              Container(
-                margin: const EdgeInsets.only(right: 16, left: 16, bottom: 12),
+              Padding(
+                padding: const EdgeInsets.only(right: 16, left: 16, bottom: 12),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Expanded(
                       child: TextField(
@@ -65,9 +74,6 @@ class _ChatPageState extends State<ChatPage> {
                             fillColor:
                                 Theme.of(context).colorScheme.primaryContainer),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 14,
                     ),
                     IconButton.filledTonal(
                         onPressed: () {
