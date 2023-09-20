@@ -16,10 +16,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'ChatGPT',
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
-          useMaterial3: true,
-          fontFamily: 'Inter',
-          textTheme: const TextTheme(
+        colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
+        useMaterial3: true,
+        fontFamily: 'Inter',
+        textTheme: const TextTheme(
             headlineLarge: TextStyle(
                 fontSize: 45, fontWeight: FontWeight.w500, color: Colors.black),
             bodyMedium: TextStyle(
@@ -32,15 +32,10 @@ class MyApp extends StatelessWidget {
               color: textMediumColor,
             ),
             labelSmall: TextStyle(
-              fontSize: 11,
-              fontWeight: FontWeight.w400,
-              color: textSmallColor
-            )
-          ),
-          iconButtonTheme: IconButtonThemeData(
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(secondaryColor)))),
+                fontSize: 11,
+                fontWeight: FontWeight.w400,
+                color: textSmallColor)),
+      ),
       routerConfig: router,
     );
   }

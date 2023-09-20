@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../../shared/images.dart';
+import '../../../shared/themes/colors.dart';
 import '../strings.dart';
 
 class ChatPage extends StatefulWidget {
@@ -29,6 +30,15 @@ class _ChatPageState extends State<ChatPage> {
       create: (context) => GetIt.I.get<ChatCubit>(),
       child: Builder(builder: (context) {
         return Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text('Will open user menu in future')));
+              },
+            ),
+          ),
           body: Stack(
             fit: StackFit.expand,
             children: [
@@ -83,7 +93,15 @@ class _ChatPageState extends State<ChatPage> {
                       child: TextField(
                         controller: textController,
                         decoration: InputDecoration(
-                            prefixIcon: const Icon(Icons.mic),
+                            prefixIcon: IconButton(
+                              icon: const Icon(Icons.mic),
+                              onPressed: () {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                        content: Text(
+                                            'Missing voice to text implementation')));
+                              },
+                            ),
                             hintText: inputMessageHint,
                             border: OutlineInputBorder(
                                 borderSide: BorderSide.none,
@@ -97,6 +115,9 @@ class _ChatPageState extends State<ChatPage> {
                       width: 14,
                     ),
                     IconButton.filledTonal(
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                secondaryColor)),
                         onPressed: () {
                           context
                               .read<ChatCubit>()
