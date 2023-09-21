@@ -14,65 +14,61 @@ class MyHomePage extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
         child: LayoutBuilder(builder:
             (BuildContext context, BoxConstraints viewportConstraints) {
-          return SingleChildScrollView(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                minHeight: viewportConstraints.maxHeight,
-              ),
-              child: IntrinsicHeight(
-                child: Column(
-                  children: [
-                    Text(
-                      pageTitle,
-                      style: textTheme.headlineLarge,
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 27),
-                      child: Text(
-                        pageDescription,
-                        style: textTheme.bodyMedium,
-                      ),
-                    ),
-                    Container(
-                        margin: const EdgeInsets.only(top: 30),
-                        child: InfoWidget(
-                            title: infoTitle1,
-                            description: infoDescription1,
-                            icon: globeImage)),
-                    Container(
-                        margin: const EdgeInsets.only(top: 30),
-                        child: InfoWidget(
-                            title: infoTitle2,
-                            description: infoDescription2,
-                            icon: lockImage)),
-                    Container(
-                        margin: const EdgeInsets.only(top: 30),
-                        child: InfoWidget(
-                          title: infoTitle3,
-                          description: infoDescription3,
-                          icon: slidersImage,
-                        )),
-                    Expanded(child: Container()),
-                    Container(
-                      margin: const EdgeInsets.only(top: 30),
-                      child: FilledButton.tonal(
-                          style: FilledButton.styleFrom(
-                              minimumSize: const Size.fromHeight(40)),
-                          onPressed: () => context.pushNamed(routerChat),
-                          child: Text(
-                            buttonText,
-                            style: textTheme.bodyMedium?.copyWith(
-                                fontSize: 14, color: textButtonColor),
-                          )),
-                    ),
-                  ],
+          return Stack(children: [
+            ListView(
+              children: [
+                Text(
+                  pageTitle,
+                  style: textTheme.headlineLarge,
                 ),
-              ),
+                Container(
+                  margin: const EdgeInsets.only(top: 27),
+                  child: Text(
+                    pageDescription,
+                    style: textTheme.bodyMedium,
+                  ),
+                ),
+                Container(
+                    margin: const EdgeInsets.only(top: 30),
+                    child: InfoWidget(
+                        title: infoTitle1,
+                        description: infoDescription1,
+                        icon: globeImage)),
+                Container(
+                    margin: const EdgeInsets.only(top: 30),
+                    child: InfoWidget(
+                        title: infoTitle2,
+                        description: infoDescription2,
+                        icon: lockImage)),
+                Container(
+                    margin: const EdgeInsets.only(top: 30),
+                    child: InfoWidget(
+                      title: infoTitle3,
+                      description: infoDescription3,
+                      icon: slidersImage,
+                    )),
+                const SizedBox(
+                  height: 70,
+                )
+              ],
             ),
-          );
+            Container(
+              padding: const EdgeInsets.only(bottom: 16),
+              alignment: Alignment.bottomCenter,
+              child: FilledButton.tonal(
+                  style: FilledButton.styleFrom(
+                      minimumSize: const Size.fromHeight(40)),
+                  onPressed: () => context.pushNamed(routerChat),
+                  child: Text(
+                    buttonText,
+                    style: textTheme.bodyMedium
+                        ?.copyWith(fontSize: 14, color: textButtonColor),
+                  )),
+            ),
+          ]);
         }),
       ),
     );
