@@ -42,12 +42,12 @@ flutter:
   uses-material-design: true
 
   assets:
-    - icons/
-    - images/
+    - assets/icons/
+    - assets/images/
 
   fonts:
     - family: Inter
       fonts:
-        - asset: fonts/Inter-Regular.ttf
-        - asset: fonts/Inter-Medium.ttf
+        - asset: assets/fonts/Inter-Regular.ttf
+        - asset: assets/fonts/Inter-Medium.ttf
           weight: 500

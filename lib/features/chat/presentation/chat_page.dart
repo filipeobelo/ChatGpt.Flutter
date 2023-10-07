@@ -6,6 +6,7 @@ import 'package:get_it/get_it.dart';
 
 import '../../../shared/images.dart';
 import '../../../shared/themes/colors.dart';
+import '../../../shared/themes/spacing.dart';
 import '../strings.dart';
 
 class ChatPage extends StatefulWidget {
@@ -58,7 +59,9 @@ class _ChatPageState extends State<ChatPage> {
                               case UserMessage():
                                 return Padding(
                                   padding: const EdgeInsets.only(
-                                      top: 26, left: 16, right: 16),
+                                      top: spacingL,
+                                      left: spacingS,
+                                      right: spacingS),
                                   child: MessageWidget(
                                       fullName: fakeUserName,
                                       nameInitials: fakeUserInitials,
@@ -67,7 +70,9 @@ class _ChatPageState extends State<ChatPage> {
                               case SystemMessage():
                                 return Padding(
                                   padding: const EdgeInsets.only(
-                                      top: 14, left: 16, right: 16),
+                                      top: spacingXS,
+                                      left: spacingS,
+                                      right: spacingS),
                                   child: MessageWidget(
                                       fullName: systemName,
                                       message: item.message.content,
@@ -85,7 +90,8 @@ class _ChatPageState extends State<ChatPage> {
                 },
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 16, left: 16, bottom: 12),
+                padding: const EdgeInsets.only(
+                    right: spacingS, left: spacingS, bottom: spacingXS),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -112,7 +118,7 @@ class _ChatPageState extends State<ChatPage> {
                       ),
                     ),
                     const SizedBox(
-                      width: 14,
+                      width: spacingXS,
                     ),
                     IconButton.filledTonal(
                         style: ButtonStyle(

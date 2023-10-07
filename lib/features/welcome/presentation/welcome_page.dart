@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../shared/images.dart';
 import '../../../shared/strings.dart';
 import '../../../shared/themes/colors.dart';
+import '../../../shared/themes/spacing.dart';
 import '../../../shared/widgets/info_widget.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -14,10 +15,9 @@ class MyHomePage extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
-        child: LayoutBuilder(builder:
-            (BuildContext context, BoxConstraints viewportConstraints) {
-          return Stack(children: [
+          padding: const EdgeInsets.only(
+              top: spacingS, left: spacingS, right: spacingS),
+          child: Stack(children: [
             ListView(
               children: [
                 Text(
@@ -25,26 +25,26 @@ class MyHomePage extends StatelessWidget {
                   style: textTheme.headlineLarge,
                 ),
                 Container(
-                  margin: const EdgeInsets.only(top: 27),
+                  margin: const EdgeInsets.only(top: spacingXL),
                   child: Text(
                     pageDescription,
                     style: textTheme.bodyMedium,
                   ),
                 ),
                 Container(
-                    margin: const EdgeInsets.only(top: 30),
+                    margin: const EdgeInsets.only(top: spacingXXL),
                     child: InfoWidget(
                         title: infoTitle1,
                         description: infoDescription1,
                         icon: globeImage)),
                 Container(
-                    margin: const EdgeInsets.only(top: 30),
+                    margin: const EdgeInsets.only(top: spacingXXL),
                     child: InfoWidget(
                         title: infoTitle2,
                         description: infoDescription2,
                         icon: lockImage)),
                 Container(
-                    margin: const EdgeInsets.only(top: 30),
+                    margin: const EdgeInsets.only(top: spacingXXL),
                     child: InfoWidget(
                       title: infoTitle3,
                       description: infoDescription3,
@@ -56,11 +56,11 @@ class MyHomePage extends StatelessWidget {
               ],
             ),
             Container(
-              padding: const EdgeInsets.only(bottom: 16),
+              padding: const EdgeInsets.only(bottom: spacingS),
               alignment: Alignment.bottomCenter,
               child: FilledButton.tonal(
                   style: FilledButton.styleFrom(
-                      minimumSize: const Size.fromHeight(40)),
+                      minimumSize: const Size.fromHeight(spacingUL)),
                   onPressed: () => context.pushNamed(routerChat),
                   child: Text(
                     buttonText,
@@ -68,9 +68,7 @@ class MyHomePage extends StatelessWidget {
                         ?.copyWith(fontSize: 14, color: textButtonColor),
                   )),
             ),
-          ]);
-        }),
-      ),
+          ])),
     );
   }
 }
